@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t lockelamora/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run lockelamora/docker-react npm run test -- --coverage
